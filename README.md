@@ -13,11 +13,12 @@ It offers a range of customizations and is designed to work seamlessly with Swif
 
 ## Installation
 ### CocoaPods
-Add the following line to your Podfile:
+Add the following line to your Podfile:  
 pod 'CollectionViewFramework'
-Then, run the following command:
+Then, run the following command:  
 pod install
 
 ### SwiftPackageManager
-Add the package to your project by selecting File -> Add Package Dependencies. Enter the following URL:
+Add the package to your project by selecting File -> Add Package Dependencies.  
+Enter the following URL:  
 https://github.com/NikitaBorovik/CollectionViewFramework
