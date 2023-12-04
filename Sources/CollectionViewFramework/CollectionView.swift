@@ -34,7 +34,6 @@ public struct CollectionView<DataType>: UIViewRepresentable {
     public init(data: Binding<[DataType]>,
                 cell: @escaping CellContentProvider,
                 selectionHandler: @escaping SelectionHandler,
-                layoutPreferences: LayoutPreferences,
                 numberOfSections: Int? = nil,
                 numberOfItemsPerSection: Int? = nil,
                 header: HeaderContentProvider? = nil,
@@ -42,7 +41,6 @@ public struct CollectionView<DataType>: UIViewRepresentable {
         self._data = data
         self.cell = cell
         self.selectionHandler = selectionHandler
-        self.layoutPreferences = layoutPreferences
         self.numberOfSections = numberOfSections
         self.numberOfItemsPerSection = numberOfItemsPerSection
         self.header = header
