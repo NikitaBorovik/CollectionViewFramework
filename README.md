@@ -6,15 +6,16 @@ It offers a range of customizations and is designed to work seamlessly with Swif
 ## Key Features
 
 - **SwiftUI Integration**: Seamlessly integrates UICollectionView into SwiftUI.
-- **Customizable Layout**: Allows customizing item size, section insets, header and footer sizes, and more.
+- **Customizable Layout**: Allows customizing item size, section insets, header and footer spaces, and more.
 - **Dynamic Data Binding**: Supports SwiftUI's data binding model to update the UI automatically based on your data source.
 - **Header and Footer Support**: Easily add custom headers and footers to your collection view sections.
 - **Flexible Cell Configuration**: Use any SwiftUI view as a cell.
 
 ## Installation
 ### CocoaPods
-Add the following line to your Podfile:  
-pod 'CollectionViewFramework'
+Add the following line to your Podfile:   
+pod 'CollectionViewFramework'  
+
 Then, run the following command:  
 pod install
 
