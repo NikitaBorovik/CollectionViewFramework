@@ -176,8 +176,8 @@ public struct LayoutPreferences {
     var minimumLineSpacing: CGFloat = 10
     var minimumInteritemSpacing: CGFloat = 10
     var sectionInset: UIEdgeInsets = .zero
-    var headerSpace: CGSize = CGSize(width: 10, height: 10)
-    var footerSpace: CGSize = CGSize(width: 10, height: 10)
+    var headerSpace: CGSize = CGSize(width: 30, height: 30)
+    var footerSpace: CGSize = CGSize(width: 30, height: 30)
 }
 
 /// Coordinator class to manage the collection view's delegation.
@@ -332,7 +332,7 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: headerSpace.width, height: headerSpace.height)
+        return headerSpace
     }
     /// Returns the size for the footer view in a given section.
     /// - Parameters:
@@ -343,6 +343,6 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: footerSpace.width, height: footerSpace.height)
+        return footerSpace
     }
 }
