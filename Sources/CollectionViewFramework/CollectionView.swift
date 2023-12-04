@@ -31,6 +31,23 @@ public struct CollectionView<DataType>: UIViewRepresentable {
     private var header: HeaderContentProvider?
     private var footer: FooterContentProvider?
 
+    public init(data: Binding<[DataType]>,
+                cell: @escaping CellContentProvider,
+                selectionHandler: @escaping SelectionHandler,
+                layoutPreferences: LayoutPreferences,
+                numberOfSections: Int? = nil,
+                numberOfItemsPerSection: Int? = nil,
+                header: HeaderContentProvider? = nil,
+                footer: FooterContentProvider? = nil) {
+        self._data = data
+        self.cell = cell
+        self.selectionHandler = selectionHandler
+        self.layoutPreferences = layoutPreferences
+        self.numberOfSections = numberOfSections
+        self.numberOfItemsPerSection = numberOfItemsPerSection
+        self.header = header
+        self.footer = footer
+    }
     /// Sets the number of sections in the collection view.
     /// - Parameter number: The number of sections.
     /// - Returns: An updated instance of `CollectionView`.
