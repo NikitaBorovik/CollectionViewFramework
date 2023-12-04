@@ -48,16 +48,16 @@ struct ContentView: View {
             selectionHandler: { indexPath in
                 print("Selected item at \(indexPath.row)") // Handling cell selection.
             },
-            header: { _ in  // Adding a header view.
-                Text("Section start")
+            header: { sectionNumber in  // Adding a header view.
+                Text("Section \(sectionNumber) start")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: 30)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.pink))
                     .padding()
             },
-            footer: { _ in  // Adding a footer view.
-                Text("Section end")
+            footer: { sectionNumber in  // Adding a footer view.
+                Text("Section \(sectionNumber) end")
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: 30)
