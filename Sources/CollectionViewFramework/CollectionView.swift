@@ -332,7 +332,7 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: headerSize.width, height: headerSize.width)
+        return CGSize(width: headerSize.width, height: headerSize.height)
     }
     /// Returns the size for the footer view in a given section.
     /// - Parameters:
@@ -343,6 +343,6 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: footerSize.width, height: footerSize.width)
+        return CGSize(width: footerSize.width, height: footerSize.height)
     }
 }
