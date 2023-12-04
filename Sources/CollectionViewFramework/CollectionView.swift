@@ -34,15 +34,11 @@ public struct CollectionView<DataType>: UIViewRepresentable {
     public init(data: Binding<[DataType]>,
                 cell: @escaping CellContentProvider,
                 selectionHandler: @escaping SelectionHandler,
-                numberOfSections: Int? = nil,
-                numberOfItemsPerSection: Int? = nil,
                 header: HeaderContentProvider? = nil,
                 footer: FooterContentProvider? = nil) {
         self._data = data
         self.cell = cell
         self.selectionHandler = selectionHandler
-        self.numberOfSections = numberOfSections
-        self.numberOfItemsPerSection = numberOfItemsPerSection
         self.header = header
         self.footer = footer
     }
