@@ -69,10 +69,10 @@ public struct CollectionView<DataType>: UIViewRepresentable {
         return copy
     }
 
-    /// Sets the size of each item in the collection view.
+    /// Sets the pace for each item in the collection view.
     /// - Parameter size: The size for each item.
     /// - Returns: An updated instance of `CollectionView`.
-    public func itemSize(_ size: CGSize) -> Self {
+    public func itemSpace(_ size: CGSize) -> Self {
         var copy = self
         copy.layoutPreferences.itemSize = size
         return copy
@@ -105,21 +105,21 @@ public struct CollectionView<DataType>: UIViewRepresentable {
         return copy
     }
 
-    /// Sets the size for header views in each section.
+    /// Sets the pace for header views in each section.
     /// - Parameter size: The size for header views.
     /// - Returns: An updated instance of `CollectionView`.
-    public func headerSize(_ size: CGSize) -> Self {
+    public func headerSpace(_ size: CGSize) -> Self {
         var copy = self
-        copy.layoutPreferences.headerSize = size
+        copy.layoutPreferences.headerSpace = size
         return copy
     }
 
-    /// Sets the size for footer views in each section.
+    /// Sets the space for footer views in each section.
     /// - Parameter size: The size for footer views.
     /// - Returns: An updated instance of `CollectionView`.
-    public func footerSize(_ size: CGSize) -> Self {
+    public func footerSpace(_ size: CGSize) -> Self {
         var copy = self
-        copy.layoutPreferences.footerSize = size
+        copy.layoutPreferences.footerSpace = size
         return copy
     }
 
@@ -165,8 +165,8 @@ public struct CollectionView<DataType>: UIViewRepresentable {
                     selectionHandler: selectionHandler,
                     headerProvider: header,
                     footerProvider: footer,
-                    headerSize: layoutPreferences.headerSize,
-                    footerSize: layoutPreferences.footerSize)
+                    headerSize: layoutPreferences.headerSpace,
+                    footerSize: layoutPreferences.footerSpace)
     }
 }
 /// Structure that stores layout preferences for a `CollectionView`.
@@ -176,8 +176,8 @@ public struct LayoutPreferences {
     var minimumLineSpacing: CGFloat = 10
     var minimumInteritemSpacing: CGFloat = 10
     var sectionInset: UIEdgeInsets = .zero
-    var headerSize: CGSize = CGSize(width: 10, height: 10)
-    var footerSize: CGSize = CGSize(width: 10, height: 10)
+    var headerSpace: CGSize = CGSize(width: 10, height: 10)
+    var footerSpace: CGSize = CGSize(width: 10, height: 10)
 }
 
 /// Coordinator class to manage the collection view's delegation.
@@ -193,8 +193,8 @@ public class Coordinator<DataType>: NSObject,
     private var headerProvider: HeaderContentProvider?
     private var footerProvider: FooterContentProvider?
 
-    private var headerSize: CGSize
-    private var footerSize: CGSize
+    private var headerSpace: CGSize
+    private var footerSpace: CGSize
     private var numberOfSections: Int?
     private var numberOfItemsPerSection: Int?
 
@@ -225,8 +225,8 @@ public class Coordinator<DataType>: NSObject,
         self.footerProvider = footerProvider
         self.numberOfSections = numberOfSections
         self.numberOfItemsPerSection = numberOfItemsPerSection
-        self.headerSize = headerSize
-        self.footerSize = footerSize
+        self.headerSpace = headerSize
+        self.footerSpace = footerSize
     }
 
     /// Returns the number of sections in the collection view.
@@ -332,7 +332,7 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: headerSize.width, height: headerSize.height)
+        return CGSize(width: headerSpace.width, height: headerSpace.height)
     }
     /// Returns the size for the footer view in a given section.
     /// - Parameters:
@@ -343,6 +343,6 @@ public class Coordinator<DataType>: NSObject,
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: footerSize.width, height: footerSize.height)
+        return CGSize(width: footerSpace.width, height: footerSpace.height)
     }
 }
