@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
   spec.name         = "CollectionViewFramework"
-  spec.version      = "0.0.7"
+  spec.version      = "0.0.8"
   spec.summary      = "Transfers UICollectionView in SwiftUI"
 
   # This description is used to generate tags and improve search results.
