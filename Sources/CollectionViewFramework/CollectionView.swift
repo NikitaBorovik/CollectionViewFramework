@@ -242,7 +242,12 @@ public class Coordinator<DataType>: NSObject,
     ///   - section: The section number.
     /// - Returns: The number of items in the section.
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfItemsPerSection ?? data.count
+        guard let number = numberOfItemsPerSection else { return data.count}
+        if number > data.count {
+            return data.count
+        } else {
+            return number
+        }
     }
 
     /// Provides a configured cell for a given index path in the collection view.
